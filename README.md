@@ -2,6 +2,7 @@
 
 This guide walks through deploying the `Node TODO App` on Kubernetes using Helm, enabling autoscaling, and generating load to trigger Horizontal Pod Autoscaler (HPA).
 
+---
 ### 🔧 Pre-Cloning Instructions
 After cloning this repository, rename the project folder to `nodetodo` to match Helm chart expectations:
 
@@ -27,7 +28,7 @@ kubectl create ns hc
 kubectl config set-context --current --namespace=hc
 ```
 
----
+#
 
 ### 🚢 2. Deploy the App using Helm
 
@@ -49,7 +50,7 @@ NOTES:
   echo http://$NODE_IP:$NODE_PORT
 ```
 
----
+#
 
 ### 🔍 3. Verify All Resources
 
@@ -72,7 +73,7 @@ NAME                                           REFERENCE             TARGETS    
 horizontalpodautoscaler.autoscaling/nodetodo   Deployment/nodetodo   cpu: <unknown>/80%   1         5         0          54s
 ```
 
----
+#
 
 ### 🌐 4. Access the App
 
@@ -84,7 +85,7 @@ kubectl port-forward service/nodetodo 8080:80
 
 Then visit [http://localhost:8080](http://localhost:8080)
 
----
+#
 
 ### 📈 5. Generate Load to Test HPA
 
@@ -98,7 +99,7 @@ Then inside the container:
 while true; do wget -q -O - http://nodetodo.hc.svc.cluster.local; done
 ```
 
----
+#
 
 ### 📊 6. Observe Autoscaling
 
@@ -123,16 +124,9 @@ NAME                                           REFERENCE             TARGETS    
 horizontalpodautoscaler.autoscaling/nodetodo   Deployment/nodetodo   cpu: 200%/80%   1         5         3          11m
 ```
 
----
+#
 
 ### ✅ Success
 
 You've successfully deployed your Node.js app using Helm with autoscaling enabled. The pods scaled automatically under CPU load using HPA and Metrics Server.
 ---
-### 🔧 Pre-Cloning Instructions
-After cloning this repository, rename the project folder to `nodetodo` to match Helm chart expectations:
-
-```bash
-git clone https://github.com/atmikvirani/nodetodocicd-helmchart.git
-mv nodetodocicd-helmchart nodetodo
-```
