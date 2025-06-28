@@ -6,6 +6,7 @@ The [`nodetodo`](https://github.com/atmikvirani/nodetodocicd-helmchart) folder c
 
 Developed and deployed with ❤️ — by [**Atmik Virani**](https://github.com/atmikvirani)
 
+---
 ## 🚀 Helm Chart Deployment for Node TODO App
 
 This guide walks through deploying the `Node TODO App` on Kubernetes using Helm, enabling autoscaling, and generating load to trigger Horizontal Pod Autoscaler (HPA).
@@ -86,7 +87,7 @@ node-todo-cicd
     └── todo.ejs
 ```
 
----
+#
 
 ### 📦 1. Create Namespace and Set Context
 
@@ -95,7 +96,7 @@ kubectl create ns hc
 kubectl config set-context --current --namespace=hc
 ```
 
----
+#
 
 ### 🚢 2. Deploy the App using Helm
 
@@ -117,7 +118,7 @@ NOTES:
   echo http://$NODE_IP:$NODE_PORT
 ```
 
----
+#
 
 ### 🔍 3. Verify All Resources
 
@@ -140,7 +141,7 @@ NAME                                           REFERENCE             TARGETS    
 horizontalpodautoscaler.autoscaling/nodetodo   Deployment/nodetodo   cpu: <unknown>/80%   1         5         0          54s
 ```
 
----
+#
 
 ### 🌐 4. Access the App
 
@@ -152,7 +153,7 @@ kubectl port-forward service/nodetodo 8080:80
 
 Then visit [http://localhost:8080](http://localhost:8080)
 
----
+#
 
 ### 📈 5. Generate Load to Test HPA
 
@@ -169,7 +170,7 @@ while true; do wget -q -O - http://nodetodo.hc.svc.cluster.local; done
 > ⚠️ **Press** `Ctrl+C` **to stop the load generation once scaling is observed.**
 
 
----
+#
 
 ### 📊 6. Observe Autoscaling
 
@@ -194,9 +195,11 @@ NAME                                           REFERENCE             TARGETS    
 horizontalpodautoscaler.autoscaling/nodetodo   Deployment/nodetodo   cpu: 200%/80%   1         5         3          11m
 ```
 
----
+#
 
 ### ✅ Success
 You've successfully deployed your Node.js app using Helm, with autoscaling enabled. The pods automatically scale based on CPU usage, thanks to Kubernetes Horizontal Pod Autoscaler (HPA) and Metrics Server integration.
 
-> 🌀 Helm chart for the repository [node-todo-cicd](https://github.com/LondheShubham153/node-todo-cicd) by Shubham Londhe.
+---
+
+🌀 Helm chart for the repository [node-todo-cicd](https://github.com/LondheShubham153/node-todo-cicd) by Shubham Londhe.
