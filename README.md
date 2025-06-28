@@ -199,6 +199,4 @@ horizontalpodautoscaler.autoscaling/nodetodo   Deployment/nodetodo   cpu: 200%/8
 ### ✅ Success
 You've successfully deployed your Node.js app using Helm, with autoscaling enabled. The pods automatically scale based on CPU usage, thanks to Kubernetes Horizontal Pod Autoscaler (HPA) and Metrics Server integration.
 
----
-
 > 🌀 Helm chart for the repository [node-todo-cicd](https://github.com/LondheShubham153/node-todo-cicd) by Shubham Londhe.
