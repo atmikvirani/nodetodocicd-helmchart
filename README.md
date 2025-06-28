@@ -26,6 +26,66 @@ mv nodetodocicd-helmchart nodetodo
 - Helm installed
 - `kubectl` configured to point to your cluster
 
+### 📁 Project Structure
+```
+node-todo-cicd
+├── app.js
+├── azure-pipelines.yml
+├── DevSecOps
+│   ├── Jenkinsfile
+│   └── README.md
+├── docker-compose.yaml
+├── Dockerfile
+├── Jenkinsfile
+├── k8s
+│   ├── deployment.yml
+│   ├── pod.yml
+│   ├── replica-sets.yml
+│   └── service.yml
+├── kustomize
+│   ├── base
+│   │   ├── app-1
+│   │   │   ├── app-1.yml
+│   │   │   └── kustomization.yml
+│   │   └── ingress
+│   │       ├── ingress.yml
+│   │       └── kustomization.yml
+│   ├── overlays
+│   │   ├── dev
+│   │   │   ├── dev-ingress-patch.json
+│   │   │   └── kustomization.yml
+│   │   └── prd
+│   │       ├── kustomization.yml
+│   │       └── prd-ingress-patch.json
+│   └── README.md
+├── nodetodo
+│   ├── Chart.yaml
+│   ├── charts
+│   ├── README.md
+│   ├── templates
+│   │   ├── _helpers.tpl
+│   │   ├── deployment.yaml
+│   │   ├── hpa.yaml
+│   │   ├── ingress.yaml
+│   │   ├── NOTES.txt
+│   │   ├── service.yaml
+│   │   ├── serviceaccount.yaml
+│   │   └── tests
+│   │       └── test-connection.yaml
+│   └── values.yaml
+├── package-lock.json
+├── package.json
+├── README.md
+├── sonar-project.properties
+├── terraform
+│   ├── main.tf
+│   └── terraform.tf
+├── test.js
+└── views
+    ├── edititem.ejs
+    └── todo.ejs
+```
+
 ---
 
 ### 📦 1. Create Namespace and Set Context
@@ -105,6 +165,9 @@ Then inside the container:
 ```sh
 while true; do wget -q -O - http://nodetodo.hc.svc.cluster.local; done
 ```
+
+> ⚠️ **Press** `Ctrl+C` **to stop the load generation once scaling is observed.**
+
 
 ---
 
