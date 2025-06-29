@@ -280,7 +280,7 @@ This deployment demonstrates a robust DevOps pipeline with production-grade infr
 
 ---
 
-> 🌀 Helm chart for the repository [node-todo-cicd](https://github.com/LondheShubham153/node-todo-cicd) by Shubham Londhe.
+◉ Helm chart for the repository [node-todo-cicd](https://github.com/LondheShubham153/node-todo-cicd) by Shubham Londhe.
 
 
 
