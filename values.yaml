@@ -1,6 +1,6 @@
 appName: nodetodo
 namespace: hc
-replicaCount: 1
+replicaCount: 3
 
 image:
   repository: "trainwithshubham/node-app"
